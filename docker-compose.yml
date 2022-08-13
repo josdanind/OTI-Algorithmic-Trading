@@ -1,8 +1,44 @@
-version: '3.9'
+version: '3.8'
 
 services:
+
   backend:
     build: ./
+    container_name: oti-backend
+    command: uvicorn app.main:app --host 0.0.0.0 --reload
     restart: always
     ports:
-      - 80:80
+      - 80:8000
+    environment:
+      - APP_VERSION=${APP_VERSION}
+      # URL Postgres
+      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASS}@postgres_db:${DB_PORT}/${DB_NAME}
+      # Root User
+      - ROOT_USERNAME=${ROOT_USERNAME}
+      - ROOT_EMAIL=${ROOT_EMAIL}
+      - ROOT_DATA=${ROOT_DATA}
+      - ROOT_PASS=${ROOT_PASS}
+      # JWT 
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_ALGORITHM=${JWT_ALGORITHM}
+      - ACCESS_TOKEN_EXPIRE_DAYS=${ACCESS_TOKEN_EXPIRE_DAYS}
+    volumes:
+      - ./app:/oti-bot/app
+    depends_on:
+      - postgres_db
+
+  postgres_db:
+    image: postgres:14.4
+    container_name: oti-db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+
+volumes:
+  postgres_data:
+

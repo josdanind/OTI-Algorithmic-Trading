@@ -1,2 +1,3 @@
-# josdanind-OTI-Algorithmic-Trading
-It's a bot called OTI
+# OTI-Algorithmic-Trading
+
+It's a trading bot called OTI

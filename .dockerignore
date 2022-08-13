@@ -1,5 +1,6 @@
 Notes/
 venv/
+assets/upload/*
 __pycache__
 .gitignore
 .git/
