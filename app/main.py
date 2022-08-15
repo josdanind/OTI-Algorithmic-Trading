@@ -5,11 +5,13 @@ from fastapi import FastAPI
 from .routers import api, assets
 
 # Environment Variables
-from .config import APP_VERSION, ROOT
+from .config import APP_VERSION, ROOT, DIRECTORIES
 
 # Database
-from .database import engine, models, SessionLocal
-from .database.queries import get_row, write_row
+from .database import engine, models
+
+# Utils
+from .utils.starting_server import check_root, create_directories
 
 
 models.Base.metadata.create_all(bind=engine)
@@ -21,10 +23,5 @@ app.include_router(assets)
 
 @app.on_event("startup")
 def startup():
-    db = SessionLocal()
-    root = get_row(db, "Trader", username=ROOT["username"])
-    if root is None:
-        root = write_row(db, "Trader", with_dict=ROOT)
-        print(f"Superuser created: {root.username}")
-    print("Welcome to OTI")
-    db.close()
+    check_root(ROOT)
+    create_directories(DIRECTORIES)
