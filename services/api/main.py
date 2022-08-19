@@ -1,18 +1,17 @@
 # FastAPI
 from fastapi import FastAPI
 
-# Routers
-from .routers import api, assets
-
 # Environment Variables
-from .config import APP_VERSION, ROOT, DIRECTORIES
-
-# Database
-from .database import engine, models
+from config import APP_VERSION, ROOT, DIRECTORIES
 
 # Utils
-from .utils.starting_server import check_root, create_directories
+from utils.starting_server import check_root, create_directories
 
+# Database
+from database import engine, models
+
+# Routes
+from routers import assets, api
 
 models.Base.metadata.create_all(bind=engine)
 

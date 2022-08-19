@@ -1,0 +1,3 @@
+[providers]
+    [providers.docker]
+        exposedByDefault = false

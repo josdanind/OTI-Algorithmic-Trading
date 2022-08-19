@@ -8,16 +8,16 @@ import jwt
 from .http_errors import token_invalid, token_expired
 
 # Schemas
-from ..schemas import Token
+from schemas import Token
 
 # Database
-from ..database import models
+from database import models
 
 # FastAPI
 from fastapi.security import OAuth2PasswordBearer
 
 # Environment Variables
-from ..config import JWT_SECRET, JWT_ALGORITHM, ACCESS_TOKEN_EXPIRE_DAYS, APP_VERSION
+from config import JWT_SECRET, JWT_ALGORITHM, ACCESS_TOKEN_EXPIRE_DAYS, APP_VERSION
 
 oauth2_schema = OAuth2PasswordBearer(tokenUrl=f"/api/v{APP_VERSION}/traders/login")
 

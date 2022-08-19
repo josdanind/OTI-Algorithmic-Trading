@@ -2,7 +2,7 @@
 from datetime import datetime
 
 # Utils
-from ..utils.encrypt_password import context
+from utils.encrypt_password import context
 
 # SQLAlchemy
 from sqlalchemy_json import MutableJson
@@ -32,4 +32,5 @@ class Trader(Base):
     updated_at = Column(DateTime)
 
     def set_password(self, password):
+        print(password)
         self.hashed_password = context.hash(password)

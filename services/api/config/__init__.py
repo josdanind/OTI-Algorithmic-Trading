@@ -25,4 +25,4 @@ JWT_ALGORITHM = environ["JWT_ALGORITHM"]
 ACCESS_TOKEN_EXPIRE_DAYS = environ["ACCESS_TOKEN_EXPIRE_DAYS"]
 
 # Directories
-DIRECTORIES = ["./app/assets/upload"]
+DIRECTORIES = ["./assets/upload"]

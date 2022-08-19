@@ -1,4 +1,4 @@
-from ..config import DATABASE_URL
+from config import DATABASE_URL
 
 # sqlalchemy
 from sqlalchemy import create_engine

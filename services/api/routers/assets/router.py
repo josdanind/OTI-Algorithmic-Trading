@@ -7,18 +7,18 @@ from fastapi.responses import FileResponse, JSONResponse
 
 # Interaction with the database
 from sqlalchemy.orm import Session
-from ...database import get_db
+from database import get_db
 
 # Utils
-from ...utils.OAuth import oauth2_schema
-from ...utils.validate_token import check_permits
+from utils.OAuth import oauth2_schema
+from utils.validate_token import check_permits
 
 router = APIRouter(prefix="/assets", tags=["Assets"])
 
 # -------
 #  Utils
 # -------
-public_path = getcwd() + "/app/assets/upload/"
+public_path = getcwd() + "/assets/upload/"
 
 
 def file_manage_error(message: str):

@@ -2,8 +2,8 @@
 import os
 
 # Database
-from ..database import SessionLocal
-from ..database.queries import get_row, write_row
+from database import SessionLocal
+from database.queries import get_row, write_row
 
 
 def check_root(root_user: dict):

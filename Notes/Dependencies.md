@@ -18,6 +18,10 @@
 
 5. `pip install python-multipart`
 
+# INSTALACIÓN DOCKER Y DOCKER-COMPOSE EN EL SERVIDOR
+## Docker
+
+## docker-compose
 
 # Source
 
@@ -26,5 +30,3 @@
 - https://towardsdatascience.com/how-to-deploy-a-secure-api-with-fastapi-docker-and-traefik-b1ca065b100f
 
 - https://www.youtube.com/watch?v=AS5xQNlH3rg&t=583s
-
-- https://www.youtube.com/watch?v=dyHtYPOE-wI

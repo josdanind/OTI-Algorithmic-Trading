@@ -5,18 +5,18 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 
 # Schemas
-from ...schemas import TraderInDB, TraderUpdate
-from ...schemas import Login, Token
+from schemas import TraderInDB, TraderUpdate
+from schemas import Login, Token
 
 # Database
-from ...database.queries import check_existence, write_row, delete_row, get_all
-from ...database.models import Trader
+from database.queries import check_existence, write_row, delete_row, get_all
+from database.models import Trader
 
 # Utils
-from ...utils.encrypt_password import context
-from ...utils.http_errors import incorrect_password, no_permissions
-from ...utils.OAuth import create_access_token
-from ...utils.validate_token import validate_token, check_permits
+from utils.encrypt_password import context
+from utils.http_errors import incorrect_password, no_permissions
+from utils.OAuth import create_access_token
+from utils.validate_token import validate_token, check_permits
 
 # ---------
 #  QUERIES

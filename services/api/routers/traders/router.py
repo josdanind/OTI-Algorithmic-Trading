@@ -4,8 +4,8 @@ from fastapi.security import OAuth2PasswordRequestForm
 
 # Interaction with the database
 from sqlalchemy.orm import Session
-from ...schemas.trader import TraderUpdate
-from ...database import get_db
+from schemas.trader import TraderUpdate
+from database import get_db
 from .db import (
     createTrader,
     traderAuth,
@@ -16,10 +16,10 @@ from .db import (
 )
 
 # Schemas
-from ...schemas import TraderInDB, TraderResponse, Token, Login, TraderOut
+from schemas import TraderInDB, TraderResponse, Token, Login, TraderOut
 
 # Utils
-from ...utils.OAuth import oauth2_schema
+from utils.OAuth import oauth2_schema
 
 router = APIRouter(prefix="/traders", tags=["Traders"])
 

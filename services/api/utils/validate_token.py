@@ -2,10 +2,10 @@
 from sqlalchemy.orm import Session
 
 # Database
-from ..database.queries import check_existence
+from database.queries import check_existence
 
 # Schemas
-from ..schemas import Token
+from schemas import Token
 
 # Utils
 from .OAuth import decode_access_token
