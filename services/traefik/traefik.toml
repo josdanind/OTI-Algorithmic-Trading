@@ -1,3 +1,17 @@
 [providers]
     [providers.docker]
         exposedByDefault = false
+
+[entryPoints]
+    [entryPoints.web]
+        address = ":80"
+    [entryPoints.websecure]
+        address = ":443"
+
+[certificatesResolvers]
+    [certificatesResolvers.letsencrypt]
+        [certificatesResolvers.letsencrypt.acme]
+            email = "josdanind@proton.me"
+            storage= "acme.json"
+            [certificatesResolvers.letsencrypt.acme.httpChallenge]
+                entryPoint = "web"

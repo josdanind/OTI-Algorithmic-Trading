@@ -13,7 +13,7 @@ from database import get_db
 from utils.OAuth import oauth2_schema
 from utils.validate_token import check_permits
 
-router = APIRouter(prefix="/assets", tags=["Assets"])
+router = APIRouter()
 
 # -------
 #  Utils

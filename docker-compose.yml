@@ -6,9 +6,11 @@ services:
     container_name: app-proxy
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./services/traefik/traefik.toml:/etc/traefik/traefik.toml
+      - ./acme.json:/acme.json
 
   bot-api:
     build:
@@ -32,7 +34,9 @@ services:
       - ./services/api:/oti-api
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.api.rule=Host(`fastapi.app.test`)"
+      - "traefik.http.routers.oti.rule=Host(`apibot.josdanind.com`)"
+      - "traefik.http.routers.oti.entrypoints=websecure"
+      - "traefik.http.routers.oti.tls.certresolver=letsencrypt"
     depends_on:
       - bot-db
 
